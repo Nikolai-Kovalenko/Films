@@ -15,7 +15,8 @@ namespace Films.Models
         public int? Parent_category_id { get; set; }
         [ForeignKey("Parent_category_id")]
         public virtual Category ParentCategory { get; set; }
-
-        public virtual ICollection<Film> Films { get; set; }
+        public int NestingLevel { get; set; }
+        public DateTime CreateTime { get; set; }
+        public DateTime? DeleteTime { get; set; }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using Films.Data;
 using Films.Models;
+using Films.Models.DTO;
 using Films.Repository.IRepository;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Films.Repository
 {
@@ -18,7 +20,7 @@ namespace Films.Repository
             var objFromDb = base.Find(id);
             if (objFromDb != null)
             {
-                base.Remove(objFromDb);
+                objFromDb.DeleteTime = DateTime.Now;
             }
             else
             {
@@ -26,7 +28,7 @@ namespace Films.Repository
             }
         }
 
-        public void Update(Category obj)
+        public void Update(CategoryDTO obj)
         {
             var objFromDb = base.FirstOrDefault(u => u.Id == obj.Id);
             if (objFromDb != null)
@@ -38,6 +40,19 @@ namespace Films.Repository
             {
                 throw new ArgumentNullException(nameof(objFromDb), "Category not found");
             }
+        }
+
+        public IEnumerable<SelectListItem> GetAllDropdownList(string obj)
+        {
+            if (obj == WC.CategotyName)
+            {
+                return _db.Categories.Select(i => new SelectListItem
+                {
+                    Text = i.Name,
+                    Value = i.Id.ToString()
+                });
+            }
+            return null;
         }
     }
 }

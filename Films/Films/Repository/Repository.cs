@@ -1,4 +1,5 @@
 ﻿using Films.Data;
+using Films.Models;
 using Films.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
@@ -76,6 +77,11 @@ namespace Films.Repository
         public void Save()
         {
             _db.SaveChanges();
+        }
+
+        internal void Remove(Category objFromDb)
+        {
+            throw new NotImplementedException();
         }
     }
 }

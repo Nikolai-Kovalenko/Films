@@ -15,5 +15,7 @@ namespace Films.Models
         public int CategoryId { get; set; }
         [ForeignKey("CategoryId")]
         public virtual Category Category { get; set; }
+        public DateTime CreateTime { get; set; }
+        public DateTime? DeleteTime { get; set; }
     }
 }

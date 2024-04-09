@@ -30,9 +30,18 @@ namespace Films.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeleteTime")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("varchar(200)");
+
+                    b.Property<int>("NestingLevel")
+                        .HasColumnType("int");
 
                     b.Property<int?>("Parent_category_id")
                         .HasColumnType("int");
@@ -52,8 +61,11 @@ namespace Films.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("CategoryId")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeleteTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Director")
                         .IsRequired()
@@ -68,8 +80,6 @@ namespace Films.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
-
                     b.ToTable("Films");
                 });
 
@@ -83,6 +93,12 @@ namespace Films.Migrations
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeleteTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("FilmId")
                         .IsRequired()
@@ -109,13 +125,6 @@ namespace Films.Migrations
                     b.Navigation("ParentCategory");
                 });
 
-            modelBuilder.Entity("Films.Models.Film", b =>
-                {
-                    b.HasOne("Films.Models.Category", null)
-                        .WithMany("Films")
-                        .HasForeignKey("CategoryId");
-                });
-
             modelBuilder.Entity("Films.Models.Film_сategory", b =>
                 {
                     b.HasOne("Films.Models.Category", "Category")
@@ -133,11 +142,6 @@ namespace Films.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("Film");
-                });
-
-            modelBuilder.Entity("Films.Models.Category", b =>
-                {
-                    b.Navigation("Films");
                 });
 #pragma warning restore 612, 618
         }

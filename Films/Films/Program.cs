@@ -1,5 +1,7 @@
 using Films;
 using Films.Data;
+using Films.Repository;
+using Films.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -12,7 +14,11 @@ builder.Services.AddDbContext<AppDbContext>(options => {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultSQLConnection"));
 });
 
-// builder.Services.AddAutoMapper(typeof(MappingConfig));
+builder.Services.AddScoped<IFilmRepository, FilmRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IFilm_ñategoryRepository, Film_ñategoryRepository>();
+
+builder.Services.AddAutoMapper(typeof(MappingConfig));
 
 var app = builder.Build();
 

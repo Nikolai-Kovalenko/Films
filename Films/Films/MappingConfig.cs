@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Films.Models;
+using Films.Models.DTO;
 
 namespace Films
 {
@@ -6,7 +8,9 @@ namespace Films
     {
         public MappingConfig()
         {
-            
+            CreateMap<Film, FilmDTO>().ReverseMap();
+            CreateMap<Category, CategoryDTO>().ReverseMap();
+            CreateMap<Film_сategory, Film_сategoryDTO>().ReverseMap();
         }
     }
 }
