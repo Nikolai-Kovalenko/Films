@@ -74,6 +74,72 @@ namespace Films.Controllers
             return View(obj);
         }
 
+        // GET - EDIT
+        public IActionResult Edit(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            var obj = _categoryRepo.Find(id.GetValueOrDefault());
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            CategoryVM categoryVM = new()
+            {
+                CategoryDTO = _mapper.Map<CategoryDTO>(obj),
+                CategorySelectList = _categoryRepo.GetAllDropdownList(  
+                    obj: WC.CategotyName,
+                    filter: s => s.NestingLevel <= obj.NestingLevel 
+                        && s.DeleteTime == null
+                        && s.Id != obj.Id)
+            };
+
+            return View(categoryVM);
+        }
+
+        //// POST - EDIT
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(CategoryVM obj)
+        {
+            if (ModelState.IsValid)
+            {
+               
+
+                if(obj.CategoryDTO.Parent_category_id == 0)
+                {
+                    var categoryList = _categoryRepo.FirstOrDefault(u => u.Parent_category_id == obj.CategoryDTO.Id && u.DeleteTime == null);
+
+                    if (categoryList != null)
+                    {
+                        return View();
+                    }
+                }
+
+                Category parentCatefory = _categoryRepo.Find(obj.CategoryDTO.Parent_category_id.GetValueOrDefault());
+
+                if (obj.CategoryDTO.Parent_category_id != 0)
+                {
+                    obj.CategoryDTO.NestingLevel = parentCatefory.NestingLevel + 1;
+                }
+                else
+                {
+                    obj.CategoryDTO.NestingLevel = 1;
+                    obj.CategoryDTO.Parent_category_id = null;
+                }
+
+                _categoryRepo.Update(obj.CategoryDTO);
+                _categoryRepo.Save();
+                return RedirectToAction("Index");
+            }
+
+            return View(obj);
+        }
+
         // GET - DELETE
         public IActionResult Delete(int? id)
         {

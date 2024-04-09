@@ -1,0 +1,61 @@
+﻿@model Films.Models.ViewModels.CategoryVM
+
+
+<form method="post" enctype="multipart/form-data">
+
+    <input asp-for="CategoryDTO.Id" hidden />
+
+    <div class="border p-3">
+
+        <div class="form-group row">
+            <h2 class="text-info pl-3">Edit Category</h2>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group row py-2">
+                    <div class="col-4">
+                        <label asp-for="CategoryDTO.Name"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="CategoryDTO.Name" class="form-control" />
+                        <span asp-validation-for="CategoryDTO.Name" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <div class="form-group row py-2">
+                    <div class="col-4">
+                        <label asp-for="CategoryDTO.Parent_category_id"></label>
+                    </div>
+                    <div class="col-8">
+                        <select asp-for="CategoryDTO.Parent_category_id" asp-items="@Model.CategorySelectList" class="form-select" required="false">
+                            <option value="0" selected>Without parent</option>
+                        </select>
+                        <span asp-validation-for="CategoryDTO.Parent_category_id" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row py-2">
+                    <div class="col-8 offset-4 row">
+
+                        <div class="col">
+                            <input type="submit" class="btn btn-success w-100" value="Update" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-info w-100"><i class="fas fa-sign-out-alt"></i> Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 ">
+            </div>
+        </div>
+    </div>
+
+</form>
+
+@section Scripts{
+
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

@@ -1,6 +1,7 @@
 ﻿using Films.Models;
 using Films.Models.DTO;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Linq.Expressions;
 
 namespace Films.Repository.IRepository
 {
@@ -8,7 +9,9 @@ namespace Films.Repository.IRepository
     {
         void Update(CategoryDTO obj);
 
-        IEnumerable<SelectListItem> GetAllDropdownList(string obj);
+        IEnumerable<SelectListItem> GetAllDropdownList(
+            string obj,
+            Expression<Func<Category, bool>> filter = null);
 
         void Delete(int id);
     }

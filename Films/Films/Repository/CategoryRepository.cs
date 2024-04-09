@@ -3,6 +3,7 @@ using Films.Models;
 using Films.Models.DTO;
 using Films.Repository.IRepository;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Linq.Expressions;
 
 namespace Films.Repository
 {
@@ -35,6 +36,7 @@ namespace Films.Repository
             {
                 objFromDb.Name = obj.Name;
                 objFromDb.Parent_category_id = obj.Parent_category_id;
+                objFromDb.NestingLevel = (int)obj.NestingLevel;
             }
             else
             {
@@ -42,11 +44,18 @@ namespace Films.Repository
             }
         }
 
-        public IEnumerable<SelectListItem> GetAllDropdownList(string obj)
+        public IEnumerable<SelectListItem> GetAllDropdownList(string obj, Expression<Func<Category, bool>> filter = null)
         {
+            IQueryable<Category> query = _db.Categories;
+
             if (obj == WC.CategotyName)
             {
-                return _db.Categories.Select(i => new SelectListItem
+                if (filter != null)
+                {
+                    query = query.Where(filter);
+                }
+
+                return query.Select(i => new SelectListItem
                 {
                     Text = i.Name,
                     Value = i.Id.ToString()
