@@ -46,11 +46,6 @@ namespace Films.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(CategoryVM obj)
         {
-            //categorydto category = new()
-            //{
-            //    parentcategory = (categorydto)_categoryrepo.getalldropdownlist(wc.categotyname)
-            //};
-
             if (ModelState.IsValid)
             {
                 Category category = new();
@@ -77,6 +72,40 @@ namespace Films.Controllers
                 return RedirectToAction("Index");
             }
             return View(obj);
+        }
+
+        // GET - DELETE
+        public IActionResult Delete(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            Category category = _categoryRepo.FirstOrDefault(u => u.Id == id, includePropreties:"ParentCategory");
+
+            if (category == null)
+            {
+                return NotFound();
+            }
+            return View(category);
+        }
+
+        // POST - DELETE
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeletePost(int? id)
+        {
+            var obj = _categoryRepo.Find(id.GetValueOrDefault());
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            _categoryRepo.Delete(obj.Id);
+            _categoryRepo.Save();
+
+            return RedirectToAction("Index");
         }
     }
 }
