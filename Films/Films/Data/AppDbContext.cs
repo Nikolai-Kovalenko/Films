@@ -12,6 +12,6 @@ namespace Films.Data
 
         public DbSet<Film> Films { get; set; }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<Film_сategory> Film_categories { get; set; }
+        public DbSet<FilmCategory> FilmCategories { get; set; }
     }
 }

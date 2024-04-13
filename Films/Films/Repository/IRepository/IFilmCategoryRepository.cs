@@ -3,9 +3,9 @@ using Films.Models.DTO;
 
 namespace Films.Repository.IRepository
 {
-    public interface IFilm_сategoryRepository : IRepository<Film_сategory>
+    public interface IFilmCategoryRepository : IRepository<FilmCategory>
     {
-        void Update(Film_сategoryDTO obj);
+        void Update(FilmCategoryDTO obj);
 
         void Delete(int id);
     }

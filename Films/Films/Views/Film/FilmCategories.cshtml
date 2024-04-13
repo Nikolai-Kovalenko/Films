@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Select Film Categories</title>
+</head>
+<body>
+    <h2>Select Film Categories:</h2>
+    <select id="categoriesSelect" multiple>
+        <!-- Categories will be dynamically populated here -->
+    </select>
+    <button onclick="saveFilmCategories()">Save</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Fetch categories from the API
+            $.ajax({
+                url: 'api/category',
+                type: 'GET',
+                success: function (categories) {
+                    categories.forEach(function (category) {
+                        $('#categoriesSelect').append(`<option value="${category.id}">${category.name}</option>`);
+                    });
+                },
+                error: function (error) {
+                    console.error('Error fetching categories:', error);
+                }
+            });
+
+            // Fetch film categories and pre-select options if needed
+            var filmId = 2; // Replace with the actual film id
+            $.ajax({
+                url: `api/film-category?filmId=${filmId}`,
+                type: 'GET',
+                success: function (filmCategories) {
+                    filmCategories.forEach(function (filmCategory) {
+                        $(`#categoriesSelect option[value="${filmCategory.categoryId}"]`).prop('selected', true);
+                    });
+                },
+                error: function (error) {
+                    console.error('Error fetching film categories:', error);
+                }
+            });
+        });
+
+        function saveFilmCategories() {
+            var filmId = 2; // Replace with the actual film id
+            var selectedCategories = $('#categoriesSelect').val();
+
+            // POST selected categories to the API
+            $.ajax({
+                url: 'api/film-category',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    filmId: filmId,
+                    categoryIds: selectedCategories
+                }),
+                success: function () {
+                    alert('Film categories saved successfully!');
+                },
+                error: function (error) {
+                    console.error('Error saving film categories:', error);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

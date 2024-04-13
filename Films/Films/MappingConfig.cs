@@ -10,7 +10,7 @@ namespace Films
         {
             CreateMap<Film, FilmDTO>().ReverseMap();
             CreateMap<Category, CategoryDTO>().ReverseMap();
-            CreateMap<Film_сategory, Film_сategoryDTO>().ReverseMap();
+            CreateMap<FilmCategory, FilmCategoryDTO>().ReverseMap();
         }
     }
 }

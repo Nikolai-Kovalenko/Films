@@ -2,10 +2,10 @@
 
 namespace Films.Models.DTO
 {
-    public class Film_сategoryDTO
+    public class FilmCategoryDTO
     {
         public int Id { get; set; }
-        public string FilmId { get; set; }
+        public int FilmId { get; set; }
         public int CategoryId { get; set; }
     }
 }

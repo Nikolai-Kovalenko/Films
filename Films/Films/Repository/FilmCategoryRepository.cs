@@ -5,11 +5,11 @@ using Films.Repository.IRepository;
 
 namespace Films.Repository
 {
-    public class Film_сategoryRepository : Repository<Film_сategory>, IFilm_сategoryRepository
+    public class FilmCategoryRepository : Repository<FilmCategory>, IFilmCategoryRepository
     {
         private readonly AppDbContext _db;
 
-        public Film_сategoryRepository(AppDbContext db) : base(db)
+        public FilmCategoryRepository(AppDbContext db) : base(db)
         {
             _db = db;
         }
@@ -27,7 +27,7 @@ namespace Films.Repository
             }
         }
 
-        public void Update(Film_сategoryDTO obj)
+        public void Update(FilmCategoryDTO obj)
         {
             var objFromDb = base.FirstOrDefault(u => u.Id == obj.Id);
             if (objFromDb != null)

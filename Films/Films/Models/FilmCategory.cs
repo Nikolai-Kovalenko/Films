@@ -3,12 +3,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Films.Models
 {
-    public class Film_сategory
+    public class FilmCategory
     {
         [Key]
         public int Id { get; set; }
 
-        public string FilmId { get; set; }
+        public int FilmId { get; set; }
         [ForeignKey("UsFilmIderId")]
         public virtual Film Film { get; set; }
 
