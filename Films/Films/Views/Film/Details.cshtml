@@ -1,0 +1,88 @@
+﻿@model Films.Models.ViewModels.FilmVM
+
+
+<form method="post" asp-action="Film Info">
+    <div class="border p-3 bg-white">
+        @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
+        <div class="form-group row">
+            <h2 class="text-info pl-3">Films Info</h2>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group row py-2">
+                    <div class="col-4">
+                        <label asp-for="FilmDTO.Name"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="FilmDTO.Name" class="form-control" />
+                        <span asp-validation-for="FilmDTO.Name" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row py-2">
+                    <div class="col-4">
+                        <label asp-for="FilmDTO.Director"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="FilmDTO.Director" class="form-control" />
+                        <span asp-validation-for="FilmDTO.Director" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row py-2">
+                    <div class="col-4">
+                        <label asp-for="FilmDTO.Release"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="FilmDTO.Release" class="form-control" type="date"/>
+                        <span asp-validation-for="FilmDTO.Release" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                        <div class="sd-multiSelect form-group row py-2">
+                            <div class="col-4">
+                               <label asp-for="FilmDTO.CategoryIdList">Categories:</label>
+                            </div>
+                            <div class="col-8">
+                                <select asp-for="FilmDTO.CategoryIdList" asp-items="@Model.CategorySelectList" multiple id="current-job-role" class="sd-CustomSelect">
+                                </select>
+                                <span asp-validation-for="FilmDTO.CategoryIdList" class="text-danger"></span>
+                            </div>
+                        </div>
+                </div>
+
+                <div class="form-group row py-2">
+                    <div class="col-8 offset-4 row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-success w-100" value="Update" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-danger w-100"><i class="fas fa-trash-alt"></i>  &nbsp; Delete</a>
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-info w-100"><i class="fas fa-sign-out-alt"></i>  &nbsp; Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                @* Keep this empty *@
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial"></partial>
+    }
+
+    <script>
+        $(document).ready(function() {
+            $('#multiple-checkboxes').multiselect({
+                includeSelectAllOption: true,
+            });
+        });
+    </script>
+}

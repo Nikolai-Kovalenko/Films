@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\Films.bundle.scp.css"
     },
     {
+      "Id": "F:\\Project\\Films\\Films\\Films\\wwwroot\\css\\select.css",
+      "PackagePath": "staticwebassets\\css\\select.css"
+    },
+    {
       "Id": "F:\\Project\\Films\\Films\\Films\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -6731,6 +6735,10 @@
     {
       "Id": "F:\\Project\\Films\\Films\\Films\\wwwroot\\fontawesome\\webfonts\\fa-solid-900.woff2",
       "PackagePath": "staticwebassets\\fontawesome\\webfonts\\fa-solid-900.woff2"
+    },
+    {
+      "Id": "F:\\Project\\Films\\Films\\Films\\wwwroot\\js\\films.js",
+      "PackagePath": "staticwebassets\\js\\films.js"
     },
     {
       "Id": "F:\\Project\\Films\\Films\\Films\\wwwroot\\js\\site.js",

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "p97FWtsVRfd2H8DO+HtNuaQXCriH7OoIgcJ3QhAnG/o=",
+  "Hash": "tdPKwSEQmyo0RT/md4o/dFN5zmgRxgzKEoOjf5g9yc0=",
   "Source": "Films",
   "BasePath": "_content/Films",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "F:\\Project\\Films\\Films\\Films\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Films.bundle.scp.css"
+    },
+    {
+      "Identity": "F:\\Project\\Films\\Films\\Films\\wwwroot\\css\\select.css",
+      "SourceId": "Films",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\Project\\Films\\Films\\Films\\wwwroot\\",
+      "BasePath": "_content/Films",
+      "RelativePath": "css/select.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\select.css"
     },
     {
       "Identity": "F:\\Project\\Films\\Films\\Films\\wwwroot\\css\\site.css",
@@ -28643,6 +28660,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\fontawesome\\webfonts\\fa-solid-900.woff2"
+    },
+    {
+      "Identity": "F:\\Project\\Films\\Films\\Films\\wwwroot\\js\\films.js",
+      "SourceId": "Films",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\Project\\Films\\Films\\Films\\wwwroot\\",
+      "BasePath": "_content/Films",
+      "RelativePath": "js/films.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\films.js"
     },
     {
       "Identity": "F:\\Project\\Films\\Films\\Films\\wwwroot\\js\\site.js",

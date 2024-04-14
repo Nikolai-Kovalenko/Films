@@ -14,6 +14,8 @@ namespace Films.Models
 
         [Column(TypeName = "varchar(200)")]
         public string Director { get; set; }
+
+        [Column(TypeName = "Date")]
         public DateTime Release { get; set; }
         public DateTime CreateTime { get; set; }
         public DateTime? DeleteTime { get; set; }

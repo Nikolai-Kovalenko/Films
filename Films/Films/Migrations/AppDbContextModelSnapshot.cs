@@ -76,7 +76,7 @@ namespace Films.Migrations
                         .HasColumnType("varchar(200)");
 
                     b.Property<DateTime>("Release")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("Date");
 
                     b.HasKey("Id");
 
@@ -100,9 +100,8 @@ namespace Films.Migrations
                     b.Property<DateTime?>("DeleteTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("FilmId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("FilmId")
+                        .HasColumnType("int");
 
                     b.Property<int>("UsFilmIderId")
                         .HasColumnType("int");
