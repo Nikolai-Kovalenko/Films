@@ -40,10 +40,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmlsbVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Project/Films/Films/Films/Views/Film/FilmCategories.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmlsbVxGaWxtQ2F0ZWdvcmllcy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [F:/Project/Films/Films/Films/Views/Film/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmlsbVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -71,6 +67,10 @@ build_metadata.AdditionalFiles.CssScope =
 [F:/Project/Films/Films/Films/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Project/Films/Films/Films/Views/Shared/_IndividualFilmsCard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9JbmRpdmlkdWFsRmlsbXNDYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-nkq4rfwfyc
 
 [F:/Project/Films/Films/Films/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s

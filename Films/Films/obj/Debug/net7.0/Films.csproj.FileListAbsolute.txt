@@ -75,3 +75,4 @@ F:\Project\Films\Films\Films\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Run
 F:\Project\Films\Films\Films\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 F:\Project\Films\Films\Films\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 F:\Project\Films\Films\Films\obj\Debug\net7.0\Films.csproj.CopyComplete
+F:\Project\Films\Films\Films\obj\Debug\net7.0\scopedcss\Views\Shared\_IndividualFilmsCard.cshtml.rz.scp.css
