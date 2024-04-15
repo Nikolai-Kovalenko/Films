@@ -9,7 +9,7 @@ namespace Films.Models
         public int Id { get; set; }
 
         public int FilmId { get; set; }
-        [ForeignKey("UsFilmIderId")]
+        [ForeignKey("FilmId")]
         public virtual Film Film { get; set; }
 
         public int CategoryId { get; set; }

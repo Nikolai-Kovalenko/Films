@@ -103,14 +103,11 @@ namespace Films.Migrations
                     b.Property<int>("FilmId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UsFilmIderId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("UsFilmIderId");
+                    b.HasIndex("FilmId");
 
                     b.ToTable("FilmCategories");
                 });
@@ -134,7 +131,7 @@ namespace Films.Migrations
 
                     b.HasOne("Films.Models.Film", "Film")
                         .WithMany()
-                        .HasForeignKey("UsFilmIderId")
+                        .HasForeignKey("FilmId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

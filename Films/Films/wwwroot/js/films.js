@@ -13,7 +13,7 @@ function loadDataTable() {
             { "data": "id", "width": "10%" },
             { "data": "name", "width": "15%" },
             {
-                "data": "categoryIdList",
+                "data": "categoryList",
                 "width": "15%",
                 "render": function (data, type, row) {
                     if (data && data.length > 0) {

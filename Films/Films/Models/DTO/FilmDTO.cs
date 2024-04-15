@@ -9,7 +9,8 @@ namespace Films.Models.DTO
         public string Name { get; set; }
         public string Director { get; set; }
         public DateTime Release { get; set; }
-        public IEnumerable<Category> CategoryIdList { get; set; }
+        public IEnumerable<Category>? CategoryList { get; set; }
+        public IEnumerable<int>? SelectedCategoryIds { get; set; }
     }
 }
     
